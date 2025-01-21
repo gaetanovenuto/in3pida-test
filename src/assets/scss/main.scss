@@ -1,0 +1,160 @@
+@use 'partials/variables.scss' as *;
+@use 'partials/mixins.scss' as *;
+@use 'partials/utilities.scss' as *;
+
+/* 
+    GENERAL
+*/
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.my-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 
+    APP
+*/
+main {
+  text-align: center;
+}
+
+
+
+/* 
+    FONTS
+*/
+
+.urbanist {
+    font-family: 'Urbanist', sans-serif;
+}
+
+.hurricane {
+    font-family: 'Hurricane', sans-serif;
+}
+
+.baumans {
+    font-family: 'Baumans', cursive;
+}
+
+/* 
+    TEXT COLORS
+*/
+
+.text-beige {
+    color: $beige;
+}
+
+.text-darkBeige {
+    color: $darkBeige;
+}
+
+.text-veryDarkBeige {
+    color: $veryDarkBeige;
+}
+
+/* 
+    BACKGROUND COLORS
+*/
+
+.bg-beige {
+    background-color: $beige;
+}
+
+.bg-darkBeige {
+    background-color: $darkBeige;
+}
+
+/* 
+    BUTTONS
+*/
+
+.empty-button {
+    border: 1px solid white;
+    background: transparent;
+    padding: 3px 15px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    
+    * {
+        color: white;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        background-color: $beige;
+        transition: height 0.3s ease-in-out;
+    }
+    
+    &:hover {
+        &::before {
+            height: 100%;
+        }
+    }
+}
+
+.filled-button {
+    border: 1px solid $orange;
+    background: $orange;
+    padding: 3px 20px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    
+    * {
+        color: white;
+        font-weight: 300;
+        font-size: 20px;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $orange;
+        transition: height 0.3s ease-in-out;
+    }
+    
+    &:hover {
+        background: white;
+
+        * {
+            color: $orange;
+        }
+        
+        &::before {
+            top: auto;
+            bottom: 0;
+            height: 0%;
+        }
+        
+    }
+}
+
+/* 
+    STYLES
+*/
+
+.line-beige {
+    border: none;
+    height: 3px;
+    background-color: $darkBeige;
+}
