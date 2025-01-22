@@ -24,6 +24,9 @@ export default {
             observerView: {
                 left: false,
                 right: false,
+                title: false,
+                description: false,
+                eleganceAndDesign: false,
             }
         };
     },
@@ -56,6 +59,12 @@ export default {
                             this.observerView.left = true;
                         } else if (entry.target === this.$refs.rightRoomImg) {
                             this.observerView.right = true;
+                        } else if (entry.target === this.$refs.roomsTitle) {
+                            this.observerView.title = true; 
+                        } else if (entry.target === this.$refs.roomsDescription) {
+                            this.observerView.description = true;
+                        } else if (entry.target === this.$refs.eleganceAndDesign) {
+                            this.observerView.eleganceAndDesign = true;
                         }
                     }
                 });
@@ -64,6 +73,9 @@ export default {
             // Associa l'osservatore agli elementi
             if (this.$refs.leftRoomImg) observer.observe(this.$refs.leftRoomImg);
             if (this.$refs.rightRoomImg) observer.observe(this.$refs.rightRoomImg);
+            if (this.$refs.roomsTitle) observer.observe(this.$refs.roomsTitle);
+            if (this.$refs.roomsDescription) observer.observe(this.$refs.roomsDescription);
+            if (this.$refs.eleganceAndDesign) observer.observe(this.$refs.eleganceAndDesign);
         },
 
         /**
@@ -110,7 +122,7 @@ export default {
 </script>
 
 <template>
-    <header class="header col-12">
+    <header class="header">
         <video class="header-video" src="../../public/img/Acapulco/video-piscina-hotel-acapulco-home.mp4" autoplay muted loop playsinline preload="auto">
         </video>
         <a class="header-logo" href="/">
@@ -186,36 +198,97 @@ export default {
                 </button>
             </div>
         </section>
-        <section class="rooms py-5">
+        <section class="rooms">
             <div class="row justify-content-between align-items-center">
                 <!-- Immagine sinistra -->
                 <div 
                     class="col-12 col-md-6 room-img-container" 
-                    :class="{ 'animate-left': observerView.left }"
-                    ref="leftRoomImg"
+                    
                 >
-                    <img src="https://acapulcohotel.it/wp-content/uploads/2024/02/sezione-camere_grande-1.jpg" alt="Suite" class="suite-img w-100">
-                    <h1 class="hurricane text-darkBeige text-end my-2">
-                        Eleganza e design
+                    <img 
+                        src="https://acapulcohotel.it/wp-content/uploads/2024/02/sezione-camere_grande-1.jpg" 
+                        alt="Suite" 
+                        class="suite-img w-100" 
+                        :class="{ 'animate-left': observerView.left }"
+                        ref="leftRoomImg">
+                    <h1 
+                        class="hurricane text-darkBeige text-end my-2 eleganceAndDesign"
+                        :class="{ 'animate-eleganceAndDesign': observerView.eleganceAndDesign }"
+                        ref="eleganceAndDesign">
+                            Eleganza e design
                     </h1>
                 </div>
                 <!-- Immagine destra -->
                 <div 
                     class="col-12 col-md-6 room-img-container" 
-                    :class="{ 'animate-right': observerView.right }"
-                    ref="rightRoomImg"
+                    
+                    
                 >
-                    <img src="https://acapulcohotel.it/wp-content/uploads/2024/02/sezione-camere_piccola.jpg" alt="room-img" class="room-img w-50">
-                    <p class="room-description my-3 w-50 mx-auto text-start urbanist">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                    <img 
+                        src="https://acapulcohotel.it/wp-content/uploads/2024/02/sezione-camere_piccola.jpg" 
+                        alt="room-img" 
+                        class="room-img w-50"
+                        :class="{ 'animate-right': observerView.right }"
+                        ref="rightRoomImg">
+                    <p 
+                        class="room-description my-3 w-50 mx-auto text-start urbanist"
+                        :class="{ 'animate-description': observerView.description }"
+                        ref="roomsDescription">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
                         <button class="filled-button my-5">
-                            <a href="https://acapulcohotel.it/camere-e-suite" class="text-decoration-none fs-3">
+                            <a 
+                                href="https://acapulcohotel.it/camere-e-suite" class="text-decoration-none fs-3">
                                 TUTTE LE CAMERE
                             </a>
                         </button>
                     </p>
                 </div>
-                <h1 class="urbanist text-veryDarkBeige rooms-title">CAMERE E SUITE</h1>
+                <h1 
+                    class="urbanist text-veryDarkBeige rooms-title"
+                    :class="{ 'animate-title': observerView.title }"
+                    ref="roomsTitle">CAMERE E SUITE</h1>
+            </div>
+        </section>
+        <section class="holidays">
+            <div class="row">
+                <div class="col-12 col-lg-2">
+                    <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine1-1.jpg" alt="Holidays">
+                </div>
+                <div class="col-12 col-lg-5 holidays-info-container">
+                    <h1 class="text-darkBeige urbanist holidays-title w-75 mx-auto text-start">
+                        LOREM IPSUM DOLOR SIT AMET
+                    </h1>
+                    <p class="urbanist w-75 mx-auto text-start fs-5 py-4 fw-light holidays-text">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </p>
+                    <div class="buttons w-75 mx-auto">
+                        <div class="row justify-content-center">
+                            <button class="filled-button col-5 me-5">
+                                <a 
+                                    href="https://acapulcohotel.it/camere-e-suite" class="text-decoration-none fs-5">
+                                    ASSICURA LA CAPARRA
+                                </a>
+                            </button>
+                            <button class="filled-button col-5 darkBeigeButton">
+                                <a 
+                                    href="https://acapulcohotel.it/camere-e-suite" class="text-decoration-none fs-5">
+                                    ASSICURA LA VACANZA
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine2-1.jpg" alt="Wine" class="holidays-wine">
+                </div>
+                <div class="col-12 col-lg-5">
+                    <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine3-1.jpg" alt="Window">
+                </div>
+            </div>
+        </section>
+        <section class="light-wish d-flex justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center w-100">
+                    <h1 class="col-12 urbanist text-darkBeige h-100 w-100">
+                        LOREM <span class="opacity-50">IPSUM DOLOR SIT AMET, NIBH CONSECTETUER</span>
+                    </h1>
             </div>
         </section>
     </main>
@@ -242,11 +315,13 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        
     }
 
     .header-logo {
         width: 400px;
         z-index: 1;
+        
     }
 }
 
@@ -254,9 +329,9 @@ main {
     position: relative;
     z-index: 2;
     margin-top: 100vh;
-
+    
     .about-article {
-
+        
         .container {
     
             .row {
@@ -264,6 +339,7 @@ main {
                 .about-title {
                     font-size: 70px;
                     padding: 40px 0 20px 0;
+                    
                 }
                 
                 .about-text {
@@ -273,6 +349,7 @@ main {
                     font-size: 26px;
                     letter-spacing: .8px;
                     font-weight: 300;
+                    
                 }
 
                 .about-signature {
@@ -288,6 +365,7 @@ main {
         background-color: white;
         padding: 75px 0;
         
+        
         .card-wrapper {
             height: 100vh;
             position: sticky;
@@ -295,6 +373,7 @@ main {
             display: flex;
             align-items: center;
             justify-content: center;
+            
         }
         
         .card {
@@ -307,6 +386,7 @@ main {
                 width: 100%;
                 height: auto;
                 object-fit: cover;
+                
             }
             
             &-title {
@@ -314,6 +394,7 @@ main {
                 margin-bottom: 1.5rem;
                 color: white;
                 font-weight: 300;
+                
             }
             
         }
@@ -321,6 +402,7 @@ main {
         @for $i from 1 through 10 {
             .card-wrapper:nth-child(#{$i}) {
                 z-index: #{$i};
+                
             }
         }
         
@@ -328,13 +410,16 @@ main {
 
     .available-offers {
         
+        
         .container {
             max-width: 90vw !important;
+            
 
             .offer-title {
                 font-size: 64px;
                 font-weight: 300;
                 transition: all 0.3s ease;
+                
 
                 &:hover {
                     font-weight: 700;
@@ -354,35 +439,63 @@ main {
     .rooms {
         background-color: white;
         position: relative;
+        padding: 100px 0;
+        overflow-x: hidden;
 
         .rooms-title {
-            font-size: 14rem;
+            font-size: 225px;
             font-weight: 300;
-            opacity: .5;
+            opacity: 0;
             position: absolute;
-            top: 3%;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 5%;
+            transform: translateY(200%);
+            transition: all 1s ease-in-out;
+            
+            &.animate-title {
+                opacity: .5;
+                transform: translateY(0);
+            }
         }
 
         .room-img-container {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 1s ease-out;
+
+            .suite-img {
+                transform: translateX(-25%);
+                transition: all 1.5s;
+                opacity: .5;
+
+                &.animate-left {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .room-img {
+                transform: translateX(100%);
+                transition: all 1.5s;
+                opacity: .5;
+
+                &.animate-right {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
 
             &:nth-child(2) {
                 margin-top: 15%;
             }
 
-            &.animate-left {
-                opacity: 1;
-                transform: translateX(-50px);
+            .eleganceAndDesign {
+                transition: all 2s;
+                transform: translateX(-30%);
+
+                &.animate-eleganceAndDesign {
+                    transform: translateX(0);
+                }
             }
 
-            &.animate-right {
-                opacity: 1;
-                transform: translateX(50px);
-            }
+
+            
         }
 
         .room-description {
@@ -392,8 +505,75 @@ main {
             opacity: .9;
             padding: 40px 0;
             line-height: 32px;
+            transition: all 2s;
+            transform: translateY(40%);
+
+            &.animate-description {
+                transform: translateY(0);
+            }
         }
     }
 
+    .holidays {
+        background: $beige2;
+        padding: 100px 0;
+
+        .holidays-info-container {
+
+            position: relative;
+
+            .holidays-title {
+                font-size: 64px;
+                font-weight: 300;
+            }
+    
+            .holidays-text {
+                letter-spacing: .5px;
+            }
+    
+            .buttons {
+                
+                .darkBeigeButton {
+                    background-color: white;
+                    border-color: $darkBeige;
+    
+                    &::before {
+                        background-color: $darkBeige;
+                    }
+    
+                    &:hover {
+                        * {
+                            color: $darkBeige;
+                        }
+                    }
+                   
+                }
+            }
+    
+            .holidays-wine {
+                position: absolute;
+                bottom: -270px;
+                left: 100px;
+                max-height: 800px;
+            }
+        }
+
+
+    }
+
+    .light-wish {
+        min-height: 100vh;
+        background-color: white;
+        
+
+        h1 {
+            font-size: 175px;
+            font-weight: 300;
+            display: block;
+            margin: 300px 0;
+
+
+        }
+    }
 }
 </style>
