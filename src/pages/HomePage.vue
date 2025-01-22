@@ -27,6 +27,7 @@ export default {
                 title: false,
                 description: false,
                 eleganceAndDesign: false,
+                wishText: false,
             }
         };
     },
@@ -65,6 +66,8 @@ export default {
                             this.observerView.description = true;
                         } else if (entry.target === this.$refs.eleganceAndDesign) {
                             this.observerView.eleganceAndDesign = true;
+                        } else if (entry.target === this.$refs.wishText) {
+                            this.observerView.wishText = true;
                         }
                     }
                 });
@@ -76,6 +79,7 @@ export default {
             if (this.$refs.roomsTitle) observer.observe(this.$refs.roomsTitle);
             if (this.$refs.roomsDescription) observer.observe(this.$refs.roomsDescription);
             if (this.$refs.eleganceAndDesign) observer.observe(this.$refs.eleganceAndDesign);
+            if (this.$refs.wishText) observer.observe(this.$refs.wishText);
         },
 
         /**
@@ -286,8 +290,11 @@ export default {
         </section>
         <section class="light-wish d-flex justify-content-center align-items-center">
             <div class="row justify-content-center align-items-center w-100">
-                    <h1 class="col-12 urbanist text-darkBeige h-100 w-100">
-                        LOREM <span class="opacity-50">IPSUM DOLOR SIT AMET, NIBH CONSECTETUER</span>
+                    <h1 
+                        class="col-12 urbanist text-darkBeige h-100 w-100"
+                        :class="{ 'animate-text': observerView.wishText }"
+                        ref="wishText">
+                        LOREM IPSUM DOLOR SIT AMET, NIBH CONSECTETUER
                     </h1>
             </div>
         </section>
@@ -571,8 +578,12 @@ main {
             font-weight: 300;
             display: block;
             margin: 300px 0;
+            opacity: .5;
+            transition: opacity 1s ease-in-out;
 
-
+            &.animate-text {
+                opacity: 1;
+            }
         }
     }
 }
