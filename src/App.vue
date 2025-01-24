@@ -2,6 +2,7 @@
 import AppHeader from './components/Header/AppHeader.vue';
 import AppMain from './components/Main/AppMain.vue';
 import AppFooter from './components/Footer/AppFooter.vue';
+import Sidebar from './components/Menu/Sidebar.vue';
 
 export default {
   data() {
@@ -14,6 +15,7 @@ export default {
     AppHeader,
     AppMain,
     AppFooter,
+    Sidebar
   },
   mounted() {
     window.addEventListener("mousemove", this.trackMouseMove);
@@ -35,6 +37,7 @@ export default {
     <AppHeader />
     <AppMain />
     <AppFooter />
+    <Sidebar />
 </template>
 
 <style lang="scss">

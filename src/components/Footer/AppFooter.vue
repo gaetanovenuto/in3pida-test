@@ -104,7 +104,7 @@ export default {
 
         .carousel-slide {
             display: inline-block;
-            animation: 15s slide infinite linear;
+            animation: 75s slide infinite linear;
 
             .diamond-icon {
                 font-size: 8px;
