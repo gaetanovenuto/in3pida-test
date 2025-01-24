@@ -37,12 +37,12 @@ export default {
 <template>
     <section class="light-wish d-flex justify-content-center align-items-center">
         <div class="row justify-content-center align-items-center w-100">
-                <h1 
-                    class="col-12 urbanist text-darkBeige h-100 w-100"
-                    :class="{ 'animate-text': observerView.wishText }"
-                    ref="wishText">
-                    LOREM IPSUM DOLOR SIT AMET, NIBH CONSECTETUER
-                </h1>
+            <h1 
+                class="col-12 urbanist text-darkBeige h-100 w-100 text-center"
+                :class="{ 'animate-text': observerView.wishText }"
+                ref="wishText">
+                LOREM IPSUM DOLOR SIT AMET, NIBH CONSECTETUER
+            </h1>
         </div>
     </section>
 </template>
@@ -53,16 +53,24 @@ export default {
 
 .light-wish {
     min-height: 100vh;
+    max-width: 100vw;
     background-color: white;
-    
+
+    .row {
+        max-width: 100vw;
+        width: 100%;
+        margin: 0 auto;
+    }
 
     h1 {
-        font-size: 175px;
+        font-size: 9vw;
+        max-width: 100vw;
         font-weight: 300;
         display: block;
         margin: 300px 0;
         opacity: .5;
         transition: opacity 1s ease-in-out;
+        width: 75%;
 
         &.animate-text {
             opacity: 1;

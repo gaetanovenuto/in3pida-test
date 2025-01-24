@@ -19,7 +19,7 @@ export default {
             const options = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.1
+                threshold: 0.2
             }
 
             const observer = new IntersectionObserver((entries) => {
@@ -61,7 +61,7 @@ export default {
             <div class="row justify-content-between align-items-center w-100">
                 <!-- Immagine sinistra -->
                 <div 
-                    class="col-12 col-md-6 room-img-container" 
+                    class="col-12 col-xl-6 room-img-container" 
                     
                 >
                     <img 
@@ -79,7 +79,7 @@ export default {
                 </div>
                 <!-- Immagine destra -->
                 <div 
-                    class="col-12 col-md-6 room-img-container" 
+                    class="col-12 col-xl-6 room-img-container" 
                 >
                     <img 
                         src="https://acapulcohotel.it/wp-content/uploads/2024/02/sezione-camere_piccola.jpg" 
@@ -120,13 +120,14 @@ export default {
     
 
     .rooms-title {
-        font-size: 225px;
+        font-size: 10vw;
         font-weight: 300;
         opacity: 0;
         position: absolute;
         top: 5%;
         transform: translateY(200%);
         transition: all 1s ease-in-out;
+
         
         &.animate-title {
             opacity: .5;
@@ -136,10 +137,19 @@ export default {
 
     .room-img-container {
 
+        @media screen and (max-width: 1200px) {
+            padding: 0;
+            margin: 0 auto;
+            width: 100vw;
+
+        }
+
         .suite-img {
             transform: translateX(-25%);
             transition: all 1.5s;
             opacity: .5;
+            object-fit: cover;
+            
 
             &.animate-left {
                 transform: translateX(0);

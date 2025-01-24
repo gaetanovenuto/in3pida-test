@@ -81,14 +81,14 @@ export default {
         >
             <div class="card w-100 h-100">
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6 position-relative w-100">
+                    <div class="col-xl-6 position-relative w-100">
                         <img 
                             :src="slide.image" 
                             :alt="slide.title"
                             class="card-image"
                         >
                     </div>
-                    <div class="col-md-6 position-absolute text-center">
+                    <div class="col-xl-6 position-absolute text-center">
                         <h2 class="card-title urbanist text-white">{{ slide.title }}</h2>
                         <button class="empty-button bg-none fs-4">
                             <a :href="slide.href" class="text-decoration-none">SCOPRI DI PIÙ</a>
@@ -166,7 +166,7 @@ export default {
         }
     }
     
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
         .card {
             width: 100%;
             margin: 5px 15px;

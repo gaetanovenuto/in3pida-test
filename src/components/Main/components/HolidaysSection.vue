@@ -11,10 +11,10 @@ export default {
 <template>
     <section class="holidays">
         <div class="row w-100">
-            <div class="col-12 col-lg-2">
-                <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine1-1.jpg" alt="Holidays">
+            <div class="col-12 col-xxl-2">
+                <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine1-1.jpg" alt="Holidays" class="holiday-img img-fluid">
             </div>
-            <div class="col-12 col-lg-5 holidays-info-container">
+            <div class="col-12 col-xxl-5 holidays-info-container">
                 <h1 class="text-darkBeige urbanist holidays-title w-75 mx-auto text-start">
                     LOREM IPSUM DOLOR SIT AMET
                 </h1>
@@ -39,8 +39,8 @@ export default {
                 </div>
                 <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine2-1.jpg" alt="Wine" class="holidays-wine">
             </div>
-            <div class="col-12 col-lg-4">
-                <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine3-1.jpg" alt="Window">
+            <div class="col-12 col-xxl-4">
+                <img src="https://acapulcohotel.it/wp-content/uploads/2024/07/banner-immagine3-1.jpg" alt="Window" class="window-image">
             </div>
         </div>
     </section>
@@ -54,9 +54,16 @@ export default {
     background: $beige2;
     padding: 100px 0;
 
-    .holidays-info-container {
+    .holiday-img {
+        max-width: 100vw;
+    }
 
+    .holidays-info-container {
         position: relative;
+
+        @media screen and (max-width: 1400px) {
+            padding: 30px 0;
+        }
 
         .holidays-title {
             font-size: 64px;
@@ -91,7 +98,24 @@ export default {
             bottom: -270px;
             left: 100px;
             max-height: 800px;
+
+            @media (max-width: 1400px) {
+                display: none;
+            }
         }
+
+    }
+
+    .window-image {
+        max-width: 100vw;
+        object-fit: cover;
+        margin: 0;
+
+    }
+
+    @media screen and (max-width: 1400px) {
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
 }
 </style>

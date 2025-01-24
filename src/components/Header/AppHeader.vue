@@ -34,8 +34,9 @@ export default {
 
 .header {
     position: fixed;
-    top: 0;
     height: 100vh;
+    max-width: 100vw;
+    top: 0;
     z-index: -1;
 
     .header-video {
@@ -43,10 +44,13 @@ export default {
         top: 0;
         left: 0;
         object-fit: cover;
+        max-width: 100vw;
+        max-height: 100vh;
     }
 
     .header-logo {
-        width: 400px;
+        width: 30vw;
+        max-width: 500px;
         z-index: 0;
     }
 }
