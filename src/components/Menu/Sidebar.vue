@@ -84,6 +84,20 @@ export default {
                     ></div>
                 </div>
             </div>
+            <div class="col-3 my-2 button-container d-flex justify-content-center align-items-center">
+                <button class="rotated-button emptyButton bg-darkBeige border-0 py-1 px-4">
+                    <a href="" class="text-decoration-none text-white urbanist text-uppercase fw-bold">
+                        Prenota
+                    </a>
+                </button>
+            </div>
+            <div class="col-3 my-3 button-container d-flex justify-content-center align-items-center">
+                <button class="rotated-button emptyButton bg-orange border-0 py-1 px-4">
+                    <a href="" class="text-decoration-none text-white urbanist text-uppercase fw-bold">
+                        Richiedi
+                    </a>
+                </button>
+            </div>
         </div>
 
         <div 
@@ -218,6 +232,15 @@ aside {
         width: 100%;
         background: $darkBeige;
         transition: height 0.1s ease-out;
+    }
+
+    .rotated-button {
+        transform: rotate(270deg);
+    }
+
+    .button-container {
+        min-height: 100px;
+
     }
 
     .offcanvas-menu {
